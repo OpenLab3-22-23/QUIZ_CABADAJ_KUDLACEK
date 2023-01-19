@@ -19,16 +19,19 @@ export default function LogIn() {
     }
   }
 
-  return !session ? (
-    <div className="w-screen h-screen flex flex-col justify-center">
+  return !session ? (      
+    <body>
+    <div className="container ">
+      <h1 className="nadpis">LOG IN</h1>
       <form onSubmit={handleLogIn} className="flex flex-col items-center">
+        <div className="inputy">
         <input
           id="email"
           type="email"
           placeholder="Your Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-64 my-2"
+          className="login"
         />
         <input
           id="password"
@@ -36,12 +39,14 @@ export default function LogIn() {
           placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-64 my-2"
+          className="login"
         />
+        </div>
+        <div>
         <input
           type="submit"
-          value="Log In"
-          className="w-64 rounded-full bg-sky-500/50 px-2 py-1 my-4"
+          value="LOG IN"
+          className="btn"
         />
         <p className="mt-5">
           Don't have an account?{" "}
@@ -49,8 +54,10 @@ export default function LogIn() {
             Sign Up
           </Link>
         </p>
+        </div>
       </form>
     </div>
+    </body>
   ) : (
     <Navigate to="/" />
   );

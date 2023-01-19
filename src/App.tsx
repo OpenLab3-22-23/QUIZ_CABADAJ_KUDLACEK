@@ -7,7 +7,7 @@ function App() {
   const { session } = useAuth();
 
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen ">
       {session ? (
         <LandingPage />
       ) : <Navigate to="/signup" />}

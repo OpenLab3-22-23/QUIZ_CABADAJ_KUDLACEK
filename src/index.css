@@ -1,3 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400&display=swap');
+
+body{
+    background-image: url(ol.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    min-height: 99vh;
+}
+.nadpis{
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Titillium Web',sans-serif;
+    text-align: center;
+    color: #fff;
+}
+.login{
+    width: 400px;
+    height: 50px;
+    background: #D9D9D9;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    padding-left: 30px;
+    border: none;
+    }
+.inputy{
+    display: inline-grid;
+    text-align: center;
+}
+form{
+    text-align: center;
+}
+.container{
+    max-width: 1140px;
+    margin: 0px auto;
+}
+.btn{
+    width: 100px;
+    height: 45px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+}
