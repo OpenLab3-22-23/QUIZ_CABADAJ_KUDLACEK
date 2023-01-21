@@ -21,34 +21,35 @@ export default function LogIn() {
 
   return !session ? (      
     <body>
-    <div className="container ">
-      <h1 className="nadpis">LOG IN</h1>
-      <form onSubmit={handleLogIn} className="flex flex-col items-center">
-        <div className="inputy">
+    <div className="login form">
+      <form onSubmit={handleLogIn}>
+        <h1>LOGIN FORM</h1>
+        <p>User Name</p>
         <input
           id="email"
           type="email"
           placeholder="Your Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="login"
         />
+        <p>Password</p>
         <input
           id="password"
           type="password"
           placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="login"
         />
-        </div>
+  
         <div>
-        <input
+          <div className="btn-zarovnanie">
+        <button
           type="submit"
           value="LOG IN"
           className="btn"
-        />
-        <p className="mt-5">
+          >LOG IN</button>
+          </div>
+        <p className="btn-zarovnanie">
           Don't have an account?{" "}
           <Link to="/signup" className="text-emerald-300">
             Sign Up

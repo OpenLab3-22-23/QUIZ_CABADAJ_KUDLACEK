@@ -20,30 +20,34 @@ export default function SignUp() {
   }
 
   return !session ? (
-    <div className="w-screen h-screen flex flex-col justify-center">
-      <form onSubmit={handleSubmit} className="flex flex-col items-center">
+    <body>
+    <div className="login form">
+      <form onSubmit={handleSubmit}>
+        <h1>SIGN UP</h1>
+        <p>User Name</p>
         <input
           id="email"
           type="email"
           placeholder="Your Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-64 my-2"
         />
+        <p>Password</p>
         <input
           id="password"
           type="password"
           placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-64 my-2"
         />
-        <input
-          type="submit"
-          value="Sign Up"
-          className="w-64 rounded-full bg-sky-500/50 px-2 py-1 my-4"
-        />
-        <p className="mt-5">
+        <div className="btn-zarovnanie">
+          <button
+            type="submit"
+            value="Sign Up"
+            className="btn"
+          >Sign up</button>
+        </div>
+        <p className="btn-zarovnanie">
           Already have an account?{" "}
           <Link to="/login" className="text-emerald-300">
             LogIn
@@ -51,6 +55,7 @@ export default function SignUp() {
         </p>
       </form>
     </div>
+    </body>
   ) : (
     <Navigate to="/" />
   );

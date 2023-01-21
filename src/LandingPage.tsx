@@ -9,10 +9,23 @@ export default function LandingPage(): JSX.Element {
         signOut();
     }
 
-    return (
-        <div className="h-full w-full flex justify-center items-center flex-col">
-            <img src={openlab} alt="Logo OpenLab" className="w-80"/>
-            <button onClick={handleLogOut}>Odhlásiť sa</button>
-        </div>
+    return  (
+        <>
+        <div className="button-container">
+            <div className="button-row">
+                <button className="btn-questions">Slovenčina</button>
+                <button className="btn-questions">Matematika</button>
+                <button className="btn-questions">Informatika</button>
+            </div>
+            <div className="button-row">
+                <button className="btn-questions">Dejepis</button>
+                < button className="btn-questions">Fyzika a Biológia</button>
+                <button className="btn-questions">Random otázky</button>
+            </div>
+      </div>
+      <button onClick={handleLogOut}>Odhlásiť sa</button>
+      </>
+      
+        
     )
 }
