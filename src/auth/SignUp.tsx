@@ -49,7 +49,7 @@ export default function SignUp() {
         </div>
         <p className="btn-zarovnanie">
           Already have an account?{" "}
-          <Link to="/login" className="text-emerald-300">
+          <Link to="/login">
             LogIn
           </Link>
         </p>

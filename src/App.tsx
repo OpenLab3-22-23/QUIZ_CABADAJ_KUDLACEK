@@ -2,6 +2,7 @@ import { Navigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./auth/Auth";
 import LandingPage from "./LandingPage";
+import Slovencina from "./Slovencina";
 
 function App() {
   const { session } = useAuth();
@@ -14,5 +15,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

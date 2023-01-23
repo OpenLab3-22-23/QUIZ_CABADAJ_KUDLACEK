@@ -51,7 +51,7 @@ export default function LogIn() {
           </div>
         <p className="btn-zarovnanie">
           Don't have an account?{" "}
-          <Link to="/signup" className="text-emerald-300">
+          <Link to="/signup">
             Sign Up
           </Link>
         </p>

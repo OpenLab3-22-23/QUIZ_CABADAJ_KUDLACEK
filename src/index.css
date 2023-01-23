@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400&display=swap');
 
 body{
-    background: url(ol.png) no-repeat;
+    background: url(ol2.png) no-repeat;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: sans-serif;  
@@ -65,13 +65,15 @@ body{
     width: 303px;
     height: 252px; 
     margin: 10px;
-    background-color: #979494;
+    background-color: #BDB8B8;
     border: none; 
     font-weight: 400;
     font-size: 40px;
     line-height: 47px;
+    border-radius: 5px;
 }
-
-
-  
+.btn-questions:hover{
+    background-color: #555;
+    color: white;
+}
 
