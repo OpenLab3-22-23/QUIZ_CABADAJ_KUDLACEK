@@ -1,43 +1,43 @@
+import React, { useState } from 'react';
 
+const Slovencina = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const questions = [
+    {
+      question: 'Koľko vzorov má mužský rod?',
+      options: [5, 3, 1, 4,],
+      correctAnswer: 4,
+    },
+  ];
 
-function Slovencina() {
-  return(
-  <>
+  const handleAnswer = (answer) => {
+    if (answer === questions[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+    }
+    setCurrentQuestion(currentQuestion + 1);
+  }
+
+  return (
+    <>
     <div className="button-container"></div>
-    <div className="sjl-nadpis">Quiz Slovenčina</div>
+      <div className="sjl-nadpis">Quiz Slovenčina</div>
 
-
-          <div className="points">  
-            <h2 className="sjl-points">0B/30B</h2>
-          </div>
-
-
-      <div className="sjl-otazka">    
-        <h2 className="sjl-txtotazka">??????????????</h2>
-      </div>
-      <div className="sjl-odpovede">
-        
-        <div className="sjl-row1">
-          <div className="sjl-odpoved1">  
-            <h2 className="sjl-txtodpoved1">??????????????</h2>
-          </div>
-          <div className="sjl-odpoved3">  
-            <h2 className="sjl-txtodpoved3">??????????????</h2>
-          </div>
+      {currentQuestion < questions.length && (
+        <>
+        <div className="sjl-otazka"> 
+          <h2 className="sjl-txtotazka">{questions[currentQuestion].question}</h2>
         </div>
-        
-        <div>
-          <div className="sjl-odpoved2">  
-            <h2 className="sjl-txtodpoved2">??????????????</h2>
-          </div>
-          <div className="sjl-odpoved4">  
-            <h2 className="sjl-txtodpoved4">??????????????</h2>
-          </div>
-        </div>
-
-      </div>
-  </>
+            {questions[currentQuestion].options.map((option) => (
+              <button className="answer " onClick={() => handleAnswer(option)}>{option}</button>
+            ))}
+        </>
+      )}
+      {currentQuestion === questions.length && <h2>Your score: {score} / {questions.length}</h2>}
+    </>
   );
 }
 
 export default Slovencina;
+        
+        
