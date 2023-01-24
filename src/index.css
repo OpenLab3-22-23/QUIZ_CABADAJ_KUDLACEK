@@ -76,4 +76,85 @@ body{
     background-color: #555;
     color: white;
 }
+.sjl-nadpis{
+    font-size: 40px;
+    text-align: center;
+    margin: 40px 0;
+    color: #fff;
+}
+.sjl-otazka{
+    width: 885px;
+    height: 115px;
+    background-color: #D9D9D9;
+    border-radius: 14px;
+    position: absolute; 
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+.sjl-txtotazka{
+    font-size: 30px;
+    text-align: center;
+    margin: 40px 0;
+    color: #000;
+}
+.sjl-odpovede{
+    position: absolute; 
+    top: 55%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    display: flex;
+}
+.sjl-odpoved1{
+    width: 380px;
+    height: 78px;
+    background-color: #D9D9D9;
+    border-radius: 14px;
+    margin-top: 15px;
+}
+.sjl-txtodpoved1{
+    font-size: 30px;
+    text-align: center;
+    margin: 40px 0;
+    color: #000;
+}
+.sjl-odpoved3{
+    width: 380px;
+    height: 78px;
+    background-color: #D9D9D9;
+    border-radius: 14px;
+}
+.sjl-txtodpoved3{
+    font-size: 30px;
+    text-align: center;
+    margin: 40px 0;
+    color: #000;
+}
+.sjl-odpoved2{
+    width: 380px;
+    height: 78px;
+    background-color: #D9D9D9;
+    border-radius: 14px;
+}
+.sjl-txtodpoved2{
+    font-size: 30px;
+    text-align: center;
+    margin: 40px 0;
+    color: #000;
+}
+.sjl-odpoved4{
+    width: 380px;
+    height: 78px;
+    background-color: #D9D9D9;
+    border-radius: 14px;
+}
+.sjl-txtodpoved4{
+    font-size: 30px;
+    text-align: center;
+    margin: 40px 0;
+    color: #000;
+}
+.sjl-row1{
+    margin-right: 100px;
+}
 
