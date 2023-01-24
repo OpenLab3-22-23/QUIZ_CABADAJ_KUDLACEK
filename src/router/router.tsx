@@ -46,6 +46,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/random ",
-    element: <Random/>
+    element: <Random />
   }
 ]);
