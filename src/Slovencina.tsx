@@ -5,6 +5,13 @@ function Slovencina() {
   <>
     <div className="button-container"></div>
     <div className="sjl-nadpis">Quiz Slovenčina</div>
+
+
+          <div className="points">  
+            <h2 className="sjl-points">0B/30B</h2>
+          </div>
+
+
       <div className="sjl-otazka">    
         <h2 className="sjl-txtotazka">??????????????</h2>
       </div>

@@ -157,4 +157,19 @@ body{
 .sjl-row1{
     margin-right: 100px;
 }
+.sjl-points{
+    font-size: 30px;
+    text-align: center;
+    padding-top: 20px;
+    margin: 40px 0;
+    color: #000;
+}
+.points{
+    margin-left: auto;
+    width: 250px;
+    height: 74px;
+    background-color: #D9D9D9;
+    border-radius: 14px;
+    margin-right: 100px;
+}
 
