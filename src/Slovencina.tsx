@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Supabase from '@supabase/supabase-js';
+import { slovencinaQuestions } from './supabase/supabaseClient';
+
 
 const Slovencina = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -10,6 +13,10 @@ const Slovencina = () => {
       correctAnswer: 4,
     },
   ];
+
+  useEffect(() => {
+    const {data, error} = slovencinaQuestions()
+  }, [])
 
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
@@ -29,7 +36,9 @@ const Slovencina = () => {
           <h2 className="sjl-txtotazka">{questions[currentQuestion].question}</h2>
         </div>
             {questions[currentQuestion].options.map((option) => (
-              <button className="answer " onClick={() => handleAnswer(option)}>{option}</button>
+              <div className="">
+              <button onClick={() => handleAnswer(option)}>{option}</button>
+              </div>
             ))}
         </>
       )}
@@ -40,4 +49,4 @@ const Slovencina = () => {
 
 export default Slovencina;
         
-        
+    
