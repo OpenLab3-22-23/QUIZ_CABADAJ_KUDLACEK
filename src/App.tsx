@@ -5,6 +5,7 @@ import { useAuth } from "./auth/Auth";
 import LandingPage from "./LandingPage";
 import Slovencina from "./Slovencina";
 import { supabase } from "./supabase/supabaseClient";
+import Matematika from "./Matematika";
 
 function App() {
   const { session } = useAuth();

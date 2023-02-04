@@ -26,25 +26,51 @@ const Slovencina = () => {
 
   return (
     <>
-      <div className="button-container"></div>
-      <div className="sjl-nadpis">Quiz Slovenčina</div>
+      <div className="quiz-nadpis">Quiz Slovenčina</div>
+      <div className="points">
+        <h2 className="quiz-points">{score} / {questions.length}</h2>
+      </div>
 
       {currentQuestion < questions.length && (
         <>
-          <div className="sjl-otazka">
-            <h2 className="sjl-txtotazka">{questions[currentQuestion].question}</h2>
-          </div>
-          {[questions[currentQuestion].option1, 
-            questions[currentQuestion].option2, 
-            questions[currentQuestion].option3, 
-            questions[currentQuestion].option4].map((option) => (
-            <div className="">
-              <button onClick={() => handleAnswer(option)}>{option}</button>
+          <div className="quiz-otazka">
+              <h2 className="quiz-txtotazka">{questions[currentQuestion].question}</h2>
             </div>
-          ))}
+            <div className="button-container-questions">
+            <div className="button-row">
+
+              <button
+                className="quiz-odpoved1 quiz-txtodpoved1"
+                onClick={() => handleAnswer(questions[currentQuestion].option1)}
+              >
+               A: {questions[currentQuestion].option1}
+              </button>
+
+              <button
+                className="quiz-odpoved2 quiz-txtodpoved2"
+                onClick={() => handleAnswer(questions[currentQuestion].option2)}
+              >
+               B: {questions[currentQuestion].option2}
+              </button>
+            </div>
+
+            <div className="button-row">
+              <button
+                className="quiz-odpoved3 quiz-txtodpoved3"
+                onClick={() => handleAnswer(questions[currentQuestion].option3)}
+              >
+               C: {questions[currentQuestion].option3}
+              </button>
+              <button
+                className="quiz-odpoved4 quiz-txtodpoved4"
+                onClick={() => handleAnswer(questions[currentQuestion].option4)}
+              >
+               D: {questions[currentQuestion].option4}
+              </button>
+            </div>
+            </div>
         </>
       )}
-      {currentQuestion === questions.length && <h2>Your score: {score} / {questions.length}</h2>}
     </>
   );
 };
