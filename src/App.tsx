@@ -9,20 +9,7 @@ import Matematika from "./Matematika";
 
 function App() {
   const { session } = useAuth();
-  useEffect(()=>{
-    async function fetchData() {
-      const { data, error } = await supabase
-    .from('slovencina')
-    .select()
-
-    if (error)
-      console.log(error);
-    console.log(data)
-    }
-    
-    fetchData();
   
-  },[])
 
   return (
     <div className="w-screen h-screen ">

@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
     element: <Fyzika />
   },
   {
-    path: "/random ",
+    path: "random",
     element: <Random />
   },
 ]);
