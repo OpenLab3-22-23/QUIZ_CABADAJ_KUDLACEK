@@ -8,8 +8,13 @@ const Fyzika = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
     supabase
       .from('Fyzika a Biologia')
       .select()
@@ -25,8 +30,16 @@ const Fyzika = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
 
+  const Loading = () => (
+    <div className="loading">
+      <div className="spinner"></div>
+        <p>Načítava sa...</p>
+    </div>
+);
+
   return (
     <>
+      {loading && <Loading />}
       <div className="quiz-nadpis">Fyzika a Biologia</div>
       <div className="points">
         <h2 className="quiz-points">{score} / {questions.length}</h2>

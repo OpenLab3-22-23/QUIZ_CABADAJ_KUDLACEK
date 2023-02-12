@@ -8,8 +8,13 @@ const Matematika = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
     supabase
       .from('Matematika')
       .select()
@@ -17,6 +22,13 @@ const Matematika = () => {
         setQuestions(data.data);
       });
   }, []);
+
+  const Loading = () => (
+    <div className="loading">
+      <div className="spinner"></div>
+        <p>Načítava sa...</p>
+    </div>
+);
 
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
@@ -27,6 +39,7 @@ const Matematika = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <div className="quiz-nadpis">Quiz Matematika</div>
       <div className="points">
         <h2 className="quiz-points">{score} / {questions.length}</h2>
