@@ -18,8 +18,7 @@ export default function LandingPage(): JSX.Element {
     }
     
     return  (
-        <>
-             
+        <>            
       <div className="button-container">
         <div className="button-row">
           <Link to="/slovencina">

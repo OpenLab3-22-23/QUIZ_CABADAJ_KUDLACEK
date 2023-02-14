@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Supabase from '@supabase/supabase-js';
 import { supabase } from './supabase/supabaseClient';
+import Loading from './Loading';
 
 
 
@@ -22,13 +23,6 @@ const Matematika = () => {
         setQuestions(data.data);
       });
   }, []);
-
-  const Loading = () => (
-    <div className="loading">
-      <div className="spinner"></div>
-        <p>Načítava sa...</p>
-    </div>
-);
 
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
