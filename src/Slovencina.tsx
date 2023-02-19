@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Supabase from '@supabase/supabase-js';
 import { slovencinaQuestions, supabase } from './supabase/supabaseClient';
 import Loading from './Loading';
-
+import QuizScore from './QuizScore';
 
 const Slovencina = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [numCorrect, setNumCorrect] = useState(0);
+  const [numIncorrect, setNumIncorrect] = useState(0);
   
   useEffect(() => {
     setLoading(true);
@@ -25,7 +27,10 @@ const Slovencina = () => {
 
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
+      setNumCorrect(numCorrect + 1);
       setScore(score + 1);
+    } else {
+      setNumIncorrect(numIncorrect + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
   };
@@ -35,7 +40,7 @@ const Slovencina = () => {
        {loading && <Loading />}
       <div className="quiz-nadpis">Quiz Slovenčina</div>
       <div className="points">
-        <h2 className="quiz-points">{score} / {questions.length}</h2>
+        <QuizScore score={score} numCorrect={numCorrect} numIncorrect={numIncorrect} totalQuestions={questions.length} />
       </div>
 
       {currentQuestion < questions.length && (
