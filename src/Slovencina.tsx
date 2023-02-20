@@ -13,7 +13,7 @@ const Slovencina = () => {
   const [numIncorrect, setNumIncorrect] = useState(0);
   const [quizEnded, setQuizEnded] = useState(false);
 
-  useEffect(() => {
+ useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -25,42 +25,22 @@ const Slovencina = () => {
         setQuestions(data.data);
       });
   }, []);
-
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
+      setNumCorrect(numCorrect + 1);
       setScore(score + 1);
-
-      const timer = setTimeout(() => {
-        if (answer === questions[currentQuestion].correctAnswer)
-        {
-              console.log("spravna odpoved");
-              setCurrentQuestion(currentQuestion + 1)
-        }
-      }, 1000);
-      {
-
-      }
-      return () => clearTimeout(timer);
+    } else {
+      setNumIncorrect(numIncorrect + 1);
     }
-
-    if (answer !== questions[currentQuestion].correctAnswer) {
-      setScore(score + 1);
-      const timer = setTimeout(() => {
-        if (answer !== questions[currentQuestion].correctAnswer)
-        {
-          console.log("nespravna odpoved");
-          setCurrentQuestion(currentQuestion + 1)
-    }
-      }, 1000);
-      {
-
-      }
-      return () => clearTimeout(timer);
-    }
-
     setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setQuizEnded(true);
+    }
   };
 
+  
 
   return (
     <>
