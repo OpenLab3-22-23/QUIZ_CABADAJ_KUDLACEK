@@ -28,16 +28,37 @@ const Slovencina = () => {
 
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
-      setNumCorrect(numCorrect + 1);
       setScore(score + 1);
-    } else {
-      setNumIncorrect(numIncorrect + 1);
+
+      const timer = setTimeout(() => {
+        if (answer === questions[currentQuestion].correctAnswer)
+        {
+              console.log("spravna odpoved");
+              setCurrentQuestion(currentQuestion + 1)
+        }
+      }, 1000);
+      {
+
+      }
+      return () => clearTimeout(timer);
     }
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setQuizEnded(true);
+
+    if (answer !== questions[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+      const timer = setTimeout(() => {
+        if (answer !== questions[currentQuestion].correctAnswer)
+        {
+          console.log("nespravna odpoved");
+          setCurrentQuestion(currentQuestion + 1)
     }
+      }, 1000);
+      {
+
+      }
+      return () => clearTimeout(timer);
+    }
+
+    setCurrentQuestion(currentQuestion + 1);
   };
 
 
