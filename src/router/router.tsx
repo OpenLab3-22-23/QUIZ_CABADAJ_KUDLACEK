@@ -6,8 +6,10 @@ import Dejepis from "../Dejepis";
 import Fyzika from "../Fyzika";
 import Informatika from "../Informatika";
 import Matematika from "../Matematika";
+import QuizScore from "../QuizScore";
 import Random from "../Random";
 import Slovencina from "../Slovencina";
+
 
 
 
