@@ -7,8 +7,7 @@ import QuizScore from './QuizScore';
 const Slovencina = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [questions, setQuestions] = useState([]);const [loading, setLoading] = useState(false);
   const [numCorrect, setNumCorrect] = useState(0);
   const [numIncorrect, setNumIncorrect] = useState(0);
   const [quizEnded, setQuizEnded] = useState(false);
@@ -25,6 +24,7 @@ const Slovencina = () => {
         setQuestions(data.data);
       });
   }, []);
+
   const handleAnswer = (answer) => {
     if (answer === questions[currentQuestion].correctAnswer) {
       setNumCorrect(numCorrect + 1);
