@@ -222,5 +222,23 @@ body{
     font-size: 24px;
     color: #333;
   }
-  
-  
+  @keyframes spravne {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+  @keyframes nespravne {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+  .animate-correct{
+    animation-name: spravne;
+    animation-duration: 1000;
+  }
+  .animate-incorrect{
+    animation-name: nespravne;
+    animation-duration: 1000;
+  }  
