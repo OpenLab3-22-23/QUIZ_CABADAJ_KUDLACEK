@@ -27,6 +27,9 @@ const Slovencina = () => {
         setQuestions(data.data);
       });
   }, []);
+
+  const [showClass, setShowClass] = useState("");
+
   const handleAnswer = (e, answer) => {
     const clickedAnswer=e.target;
     console.log(clickedAnswer);
@@ -35,14 +38,16 @@ const Slovencina = () => {
         {
             console.log("spravna odpoved");
             setCurrentQuestion(currentQuestion + 1)
+            setNumCorrect(numCorrect + 1);
+            setScore(score + 1);
         }
       }, 1000);
       {
-        setNumCorrect(numCorrect + 1);
-        setScore(score + 1);
+        setShowClass("animate-correct");
       }
       return () => clearTimeout(timer);
-    } else {
+    } 
+    else {
       const timer = setTimeout(() => {
         {
           console.log("nespravna odpoved");
@@ -55,7 +60,7 @@ const Slovencina = () => {
         }
       }, 1000);
       {
-        
+        setShowClass("animate-incorrect");
       }
     }
   };
@@ -81,13 +86,13 @@ const Slovencina = () => {
               <div className="button-container-questions">
                 <div className="button-row">
                   <button
-                    className={"quiz-odpoved1 quiz-txtodpoved1" + answer1}
+                    className={showClass} //"quiz-odpoved2 quiz-txtodpoved2" 
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option1)}
                   >
                     A: {questions[currentQuestion].option1}
                   </button>
                   <button
-                    className="quiz-odpoved2 quiz-txtodpoved2"
+                    className="quiz-odpoved2 quiz-txtodpoved2" 
                     onClick={() => handleAnswer(questions[currentQuestion].option2)}
                   >
                     B: {questions[currentQuestion].option2}
