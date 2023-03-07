@@ -37,7 +37,6 @@ const Slovencina = () => {
             setCurrentQuestion(currentQuestion + 1)
             setNumCorrect(numCorrect + 1);
             setScore(score + 1);
-            e.currentTarget.classList.remove('animate-incorrect');
         }
       }, 1000);
       {
@@ -51,7 +50,6 @@ const Slovencina = () => {
           console.log("nespravna odpoved");
           setNumIncorrect(numIncorrect + 1);
           setCurrentQuestion(currentQuestion + 1);
-          e.currentTarget.classList.remove('animate-incorrect');
           if (currentQuestion + 1 < questions.length) {
           } else {
             setQuizEnded(true);
