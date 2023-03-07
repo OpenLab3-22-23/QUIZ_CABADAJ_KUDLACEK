@@ -29,36 +29,29 @@ const Slovencina = () => {
   }, []);
 
   const handleAnswer = (e, answer) => {
-  const clickedAnswer=e.target;
+    const clickedAnswer=e.target;
     if (answer === questions[currentQuestion].correctAnswer) {
+      clickedAnswer.classList.add('animate-correct');
       const timer = setTimeout(() => {
-        {
-            console.log("spravna odpoved");
-            setCurrentQuestion(currentQuestion + 1)
-            setNumCorrect(numCorrect + 1);
-            setScore(score + 1);
-        }
+        setCurrentQuestion(currentQuestion + 1)
+        setNumCorrect(numCorrect + 1);
+        setScore(score + 1);
+        clickedAnswer.classList.remove('animate-correct');
       }, 1000);
-      {
-        e.currentTarget.classList.add('animate-correct');
-      }
       return () => clearTimeout(timer);
     } 
     else {
+      clickedAnswer.classList.add('animate-incorrect');
       const timer = setTimeout(() => {
-        {
-          console.log("nespravna odpoved");
-          setNumIncorrect(numIncorrect + 1);
-          setCurrentQuestion(currentQuestion + 1);
-          if (currentQuestion + 1 < questions.length) {
-          } else {
-            setQuizEnded(true);
-          }
+        setNumIncorrect(numIncorrect + 1);
+        setCurrentQuestion(currentQuestion + 1);
+        if (currentQuestion + 1 < questions.length) {
+        } else {
+          setQuizEnded(true);
         }
+        clickedAnswer.classList.remove('animate-incorrect');
       }, 1000);
-      {
-        e.currentTarget.classList.add('animate-incorrect');
-      }
+      return () => clearTimeout(timer);
     }
   };
 
@@ -86,7 +79,7 @@ const Slovencina = () => {
                     className="quiz-odpoved1 quiz-txtodpoved1"
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option1)}
                   >
-                    {questions[currentQuestion].option1}
+                  {questions[currentQuestion].option1}
                   </button>
                   <button
                     className="quiz-odpoved2 quiz-txtodpoved2" 
