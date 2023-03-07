@@ -79,13 +79,13 @@ const Slovencina = () => {
                     className="quiz-odpoved1 quiz-txtodpoved1"
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option1)}
                   >
-                  {questions[currentQuestion].option1}
+                  A: {questions[currentQuestion].option1}
                   </button>
                   <button
                     className="quiz-odpoved2 quiz-txtodpoved2" 
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option2)}
                   >
-                    {questions[currentQuestion].option2}
+                    B: {questions[currentQuestion].option2}
                   </button>
                 </div>
   
@@ -94,13 +94,13 @@ const Slovencina = () => {
                     className="quiz-odpoved3 quiz-txtodpoved3"
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option3)}
                   >
-                    {questions[currentQuestion].option3}
+                    C: {questions[currentQuestion].option3}
                   </button>
                   <button
                     className="quiz-odpoved4 quiz-txtodpoved4"
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option4)}
                   >
-                    {questions[currentQuestion].option4}
+                    D: {questions[currentQuestion].option4}
                   </button>
                 </div>
               </div>
