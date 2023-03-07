@@ -28,11 +28,8 @@ const Slovencina = () => {
       });
   }, []);
 
-  const [showClass, setShowClass] = useState("");
-
   const handleAnswer = (e, answer) => {
-    const clickedAnswer=e.target;
-    console.log(clickedAnswer);
+  const clickedAnswer=e.target;
     if (answer === questions[currentQuestion].correctAnswer) {
       const timer = setTimeout(() => {
         {
@@ -40,10 +37,11 @@ const Slovencina = () => {
             setCurrentQuestion(currentQuestion + 1)
             setNumCorrect(numCorrect + 1);
             setScore(score + 1);
+            e.currentTarget.classList.remove('animate-incorrect');
         }
       }, 1000);
       {
-        setShowClass("animate-correct");
+        e.currentTarget.classList.add('animate-correct');
       }
       return () => clearTimeout(timer);
     } 
@@ -52,7 +50,8 @@ const Slovencina = () => {
         {
           console.log("nespravna odpoved");
           setNumIncorrect(numIncorrect + 1);
-          setCurrentQuestion(currentQuestion + 1)
+          setCurrentQuestion(currentQuestion + 1);
+          e.currentTarget.classList.remove('animate-incorrect');
           if (currentQuestion + 1 < questions.length) {
           } else {
             setQuizEnded(true);
@@ -60,7 +59,7 @@ const Slovencina = () => {
         }
       }, 1000);
       {
-        setShowClass("animate-incorrect");
+        e.currentTarget.classList.add('animate-incorrect');
       }
     }
   };
@@ -86,31 +85,31 @@ const Slovencina = () => {
               <div className="button-container-questions">
                 <div className="button-row">
                   <button
-                    className={showClass} //"quiz-odpoved2 quiz-txtodpoved2" 
+                    className="quiz-odpoved1 quiz-txtodpoved1"
                     onClick={(e) => handleAnswer(e, questions[currentQuestion].option1)}
                   >
-                    A: {questions[currentQuestion].option1}
+                    {questions[currentQuestion].option1}
                   </button>
                   <button
                     className="quiz-odpoved2 quiz-txtodpoved2" 
-                    onClick={() => handleAnswer(questions[currentQuestion].option2)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option2)}
                   >
-                    B: {questions[currentQuestion].option2}
+                    {questions[currentQuestion].option2}
                   </button>
                 </div>
   
                 <div className="button-row">
                   <button
                     className="quiz-odpoved3 quiz-txtodpoved3"
-                    onClick={() => handleAnswer(questions[currentQuestion].option3)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option3)}
                   >
-                    C: {questions[currentQuestion].option3}
+                    {questions[currentQuestion].option3}
                   </button>
                   <button
                     className="quiz-odpoved4 quiz-txtodpoved4"
-                    onClick={() => handleAnswer(questions[currentQuestion].option4)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option4)}
                   >
-                    D: {questions[currentQuestion].option4}
+                    {questions[currentQuestion].option4}
                   </button>
                 </div>
               </div>

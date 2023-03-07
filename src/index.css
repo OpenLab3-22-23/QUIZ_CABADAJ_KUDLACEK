@@ -238,10 +238,12 @@ body{
     100% { background-color: red; }
   }
   .animate-correct{
-    animation-name: spravne;
-    animation-duration: 1000;
+    /* animation-name: spravne;
+    animation-duration: 1000; */
+    background-color: green;
   }
   .animate-incorrect{
-    animation-name: nespravne;
-    animation-duration: 1000;
+    /* animation-name: nespravne;
+    animation-duration: 1000; */
+    background-color: red;
   }  
