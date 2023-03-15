@@ -5,6 +5,7 @@ import SignUp from "../auth/SignUp";
 import Dejepis from "../Dejepis";
 import Fyzika from "../Fyzika";
 import Informatika from "../Informatika";
+import LandingPage from "../LandingPage";
 import Matematika from "../Matematika";
 import QuizScore from "../QuizScore";
 import Random from "../Random";
@@ -49,5 +50,9 @@ export const router = createBrowserRouter([
   {
     path: "random",
     element: <Random />
+  },
+  {
+    path: "/landingpage",
+    element: <LandingPage />
   },
 ]);

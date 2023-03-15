@@ -220,7 +220,7 @@ body{
   
   .quiz-score h2 {
     font-size: 28px;
-    color: #ffa500;
+    color: #D95F2A;
   }
   
   .quiz-score h3 {
@@ -246,4 +246,25 @@ body{
     /* animation-name: nespravne;
     animation-duration: 1000; */
     background-color: red;
-  }  
+  }
+  .back_button{
+    background-color: #D95F2A;;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    filter: drop-shadow(0px 5px 0px #AE481B);
+    width: 296px;
+    height: 70px;
+    cursor: pointer;
+  }
+  .back_button:hover{
+      background-color: #AE481B;
+  }
+  .back-button {
+    margin-top: 20px;
+    text-align: center;
+  } 
