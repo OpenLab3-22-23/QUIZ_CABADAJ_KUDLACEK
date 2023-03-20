@@ -11,7 +11,8 @@ const Slovencina = () => {
   const [loading, setLoading] = useState(false);
   const [numCorrect, setNumCorrect] = useState(0);
   const [numIncorrect, setNumIncorrect] = useState(0);
-  const [quizEnded, setQuizEnded] = useState(false); 
+  const [quizEnded, setQuizEnded] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(20);
   
   const [answer1, setAnswer1] = useState("");
 
@@ -26,6 +27,8 @@ const Slovencina = () => {
       .then((data) => {
         setQuestions(data.data);
       });
+    setTimeLeft(20);
+    setQuizEnded(false);
   }, []);
 
   const handleAnswer = (e, answer) => {
@@ -37,7 +40,12 @@ const Slovencina = () => {
         setNumCorrect(numCorrect + 1);
         setScore(score + 1);
         clickedAnswer.classList.remove('animate-correct');
-      }, 1000);
+        if (currentQuestion + 1 < questions.length) {
+          setTimeLeft(20);
+        } else {
+          setQuizEnded(true);
+        }
+      }, 250);
       return () => clearTimeout(timer);
     } 
     else {
@@ -50,10 +58,32 @@ const Slovencina = () => {
           setQuizEnded(true);
         }
         clickedAnswer.classList.remove('animate-incorrect');
-      }, 1000);
+        if (currentQuestion + 1 < questions.length) {
+          setTimeLeft(20);
+        } else {
+          setQuizEnded(true);
+        }
+      }, 250);
       return () => clearTimeout(timer);
     }
   };
+
+  useEffect(() => {
+    if (timeLeft > 0 && currentQuestion < questions.length && !quizEnded) {
+      const timer = setTimeout(() => {
+        setTimeLeft(timeLeft - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (timeLeft === 0 && !quizEnded) {
+      setCurrentQuestion(currentQuestion + 1);
+      setNumIncorrect(numIncorrect + 1);
+      if (currentQuestion + 1 < questions.length) {
+        setTimeLeft(20);
+      } else {
+        setQuizEnded(true);
+      }
+    }
+  }, [timeLeft, currentQuestion, questions, quizEnded]);
 
   return (
     <>
@@ -67,7 +97,8 @@ const Slovencina = () => {
         />
       ) : (
         <>
-          <div className="quiz-nadpis">Quiz Slovenčina</div>
+          <div className="quiz-nadpis">Quiz Slovenčina
+          <div className="quiz-timer">{timeLeft}</div></div>
           {currentQuestion < questions.length && (
             <>
               <div className="quiz-otazka">
