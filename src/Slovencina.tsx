@@ -97,7 +97,8 @@ const Slovencina = () => {
       ) : (
         <>
           <div className="quiz-nadpis">Quiz Slovenčina
-          <div className="quiz-timer">{timeLeft}</div></div>
+            <div className="quiz-timer">{timeLeft}</div>
+          </div>
           {currentQuestion < questions.length && (
             <>
               <div className="quiz-otazka">

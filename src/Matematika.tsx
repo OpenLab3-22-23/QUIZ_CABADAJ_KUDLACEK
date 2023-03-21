@@ -15,6 +15,7 @@ const Matematika = () => {
   const [numIncorrect, setNumIncorrect] = useState(0);
   const [quizEnded, setQuizEnded] = useState(false);
   const [answer1, setAnswer1] = useState("");
+  const [timeLeft, setTimeLeft] = useState(20);
 
   useEffect(() => {
     setLoading(true);
@@ -65,6 +66,24 @@ const Matematika = () => {
       return () => clearTimeout(timer);
     }
   };
+
+  useEffect(() => {
+    if (timeLeft > 0 && currentQuestion < questions.length && !quizEnded) {
+      const timer = setTimeout(() => {
+        setTimeLeft(timeLeft - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (timeLeft === 0 && !quizEnded) {
+      setCurrentQuestion(currentQuestion + 1);
+      setNumIncorrect(numIncorrect + 1);
+      if (currentQuestion + 1 < questions.length) {
+        setTimeLeft(20);
+      } else {
+        setQuizEnded(true);
+      }
+    }
+  }, [timeLeft, currentQuestion, questions, quizEnded]);
+
   return (
     <>
       {loading && <Loading />}
@@ -77,7 +96,9 @@ const Matematika = () => {
         />
       ) : (
         <>
-          <div className="quiz-nadpis">Quiz Matematika</div>
+          <div className="quiz-nadpis">Quiz Matematika
+            <div className="quiz-timer">{timeLeft}</div>
+          </div>
           {currentQuestion < questions.length && (
            <>
             <div className="quiz-otazka">
