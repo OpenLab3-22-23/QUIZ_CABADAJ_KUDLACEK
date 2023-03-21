@@ -13,7 +13,6 @@ const Slovencina = () => {
   const [numIncorrect, setNumIncorrect] = useState(0);
   const [quizEnded, setQuizEnded] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20);
-  
   const [answer1, setAnswer1] = useState("");
 
  useEffect(() => {

@@ -14,6 +14,7 @@ const Matematika = () => {
   const [numCorrect, setNumCorrect] = useState(0);
   const [numIncorrect, setNumIncorrect] = useState(0);
   const [quizEnded, setQuizEnded] = useState(false);
+  const [answer1, setAnswer1] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -28,21 +29,42 @@ const Matematika = () => {
       });
   }, []);
 
-  const handleAnswer = (answer) => {
+ const handleAnswer = (e, answer) => {
+    const clickedAnswer=e.target;
     if (answer === questions[currentQuestion].correctAnswer) {
-      setNumCorrect(numCorrect + 1);
-      setScore(score + 1);
-    } else {
-      setNumIncorrect(numIncorrect + 1);
-    }
-    setCurrentQuestion(currentQuestion + 1);
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setQuizEnded(true);
+      clickedAnswer.classList.add('animate-correct');
+      const timer = setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1)
+        setNumCorrect(numCorrect + 1);
+        setScore(score + 1);
+        clickedAnswer.classList.remove('animate-correct');
+        if (currentQuestion + 1 < questions.length) {
+          setTimeLeft(20);
+        } else {
+          setQuizEnded(true);
+        }
+      }, 250);
+      return () => clearTimeout(timer);
+    } 
+    else {
+      clickedAnswer.classList.add('animate-incorrect');
+      const timer = setTimeout(() => {
+        setNumIncorrect(numIncorrect + 1);
+        setCurrentQuestion(currentQuestion + 1);
+        if (currentQuestion + 1 < questions.length) {
+        } else {
+          setQuizEnded(true);
+        }
+        clickedAnswer.classList.remove('animate-incorrect');
+        if (currentQuestion + 1 < questions.length) {
+          setTimeLeft(20);
+        } else {
+          setQuizEnded(true);
+        }
+      }, 250);
+      return () => clearTimeout(timer);
     }
   };
-
   return (
     <>
       {loading && <Loading />}
@@ -65,13 +87,13 @@ const Matematika = () => {
                 <div className="button-row">
                   <button
                     className="quiz-odpoved1 quiz-txtodpoved1"
-                    onClick={() => handleAnswer(questions[currentQuestion].option1)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option1)}
                   >
                     A: {questions[currentQuestion].option1}
                   </button>
                   <button
                     className="quiz-odpoved2 quiz-txtodpoved2"
-                    onClick={() => handleAnswer(questions[currentQuestion].option2)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option2)}
                   >
                     B: {questions[currentQuestion].option2}
                   </button>
@@ -80,13 +102,13 @@ const Matematika = () => {
                 <div className="button-row">
                   <button
                     className="quiz-odpoved3 quiz-txtodpoved3"
-                    onClick={() => handleAnswer(questions[currentQuestion].option3)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option3)}
                   >
                     C: {questions[currentQuestion].option3}
                   </button>
                   <button
                     className="quiz-odpoved4 quiz-txtodpoved4"
-                    onClick={() => handleAnswer(questions[currentQuestion].option4)}
+                    onClick={(e) => handleAnswer(e, questions[currentQuestion].option4)}
                   >
                     D: {questions[currentQuestion].option4}
                   </button>
