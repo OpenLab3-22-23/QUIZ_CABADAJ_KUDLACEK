@@ -13,8 +13,9 @@ const QuizScore = ({ score, numCorrect, numIncorrect, totalQuestions }) => {
 
       <div className="back-button">
       <Link to="/landingpage">
-        <button className="back_button">BACK</button>
+        <button className="results_button">BACK</button>
       </Link>
+        <button className="results_button">SAVE TO DATABASE</button>
     </div>
     </div>
     </>

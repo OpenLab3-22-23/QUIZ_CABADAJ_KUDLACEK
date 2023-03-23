@@ -247,7 +247,7 @@ body{
     animation-duration: 1000; */
     background-color: red;
   }
-  .back_button{
+  .results_button{
     background-color: #D95F2A;;
     border: none;
     color: white;
@@ -260,11 +260,12 @@ body{
     width: 296px;
     height: 70px;
     cursor: pointer;
+    margin: 20px;
   }
-  .back_button:hover{
-      background-color: #AE481B;
+  .results_button:hover{
+    background-color: #AE481B;
   }
-  .back-button {
+  .results-button {
     margin-top: 20px;
     text-align: center;
   }
