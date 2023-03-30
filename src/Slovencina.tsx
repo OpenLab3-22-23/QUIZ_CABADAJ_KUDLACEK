@@ -14,6 +14,7 @@ const Slovencina = () => {
   const [quizEnded, setQuizEnded] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20);
   const [answer1, setAnswer1] = useState("");
+  const [username, setUsername] = useState("");
 
  useEffect(() => {
     setLoading(true);

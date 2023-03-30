@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { supabase } from './supabase/supabaseClient';
 
 
 const QuizScore = ({ score, numCorrect, numIncorrect, totalQuestions }) => {
@@ -15,11 +16,29 @@ const QuizScore = ({ score, numCorrect, numIncorrect, totalQuestions }) => {
       <Link to="/landingpage">
         <button className="results_button">BACK</button>
       </Link>
-        <button className="results_button">SAVE TO DATABASE</button>
+        <button className="results_button" onClick={saveScoreToDatabase}>SAVE TO DATABASE</button>
     </div>
     </div>
     </>
   );
 };
+
+const saveScoreToDatabase = async ({numCorrect, numIncorrect }) => {
+  try {
+    const { data, error } = await supabase
+      .from('Results')
+      .insert([{ 
+        QUIZ: "Slovencina", 
+        CorrectAnswers: numCorrect, 
+        IncorrectAnswers: numIncorrect, 
+      }]);
+    if (error) throw error;
+    alert("Score saved successfully!");
+  } catch (error) {
+    console.log(error.message);
+    alert(error.message);
+  }
+};
+
 
 export default QuizScore;
