@@ -18,7 +18,27 @@ export default function LandingPage(): JSX.Element {
     }
     
     return  (
-        <>            
+        <>          
+
+<div className="QUIZ_dropdown">
+<nav>
+
+  <input type="checkbox" id="hamburger-toggle" />
+  <label htmlFor="hamburger-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <div className="menu">
+    <ul>
+      <li><a href="#">Výsledky</a></li>
+      <li><a onClick={handleLogOut}>Odhlásiť sa</a></li>
+    </ul>
+  </div>
+  <a className="home">QUIZ</a>
+</nav>
+</div>
+
       <div className="button-container">
         <div className="button-row">
           <Link to="/slovencina">
@@ -43,7 +63,6 @@ export default function LandingPage(): JSX.Element {
           </Link>
         </div>
       </div>
-      <button onClick={handleLogOut}>Odhlásiť sa</button>
       </>
     );
 };
