@@ -15,6 +15,7 @@ const Slovencina = () => {
   const [timeLeft, setTimeLeft] = useState(20);
   const [answer1, setAnswer1] = useState("");
   const [username, setUsername] = useState("");
+  const [quizName, setQuizName] = useState("Slovencina");
 
  useEffect(() => {
     setLoading(true);
@@ -94,6 +95,7 @@ const Slovencina = () => {
           numCorrect={numCorrect}
           numIncorrect={numIncorrect}
           totalQuestions={questions.length}
+          quizName={quizName}
         />
       ) : (
         <>

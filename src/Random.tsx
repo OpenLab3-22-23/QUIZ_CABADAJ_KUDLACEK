@@ -16,6 +16,8 @@ const Random = () => {
   const [quizEnded, setQuizEnded] = useState(false);
   const [answer1, setAnswer1] = useState("");
   const [timeLeft, setTimeLeft] = useState(20);
+  const [quizName, setQuizName] = useState("Random");
+  
 
   useEffect(() => {
     setLoading(true);
@@ -93,6 +95,7 @@ const Random = () => {
           numCorrect={numCorrect}
           numIncorrect={numIncorrect}
           totalQuestions={questions.length}
+          quizName={quizName}
         />
       ) : (
         <>

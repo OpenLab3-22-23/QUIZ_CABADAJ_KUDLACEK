@@ -14,6 +14,7 @@ const Matematika = () => {
   const [quizEnded, setQuizEnded] = useState(false);
   const [answer1, setAnswer1] = useState("");
   const [timeLeft, setTimeLeft] = useState(20);
+  const [quizName, setQuizName] = useState("Matematika");
 
   useEffect(() => {
     setLoading(true);
@@ -91,6 +92,7 @@ const Matematika = () => {
           numCorrect={numCorrect}
           numIncorrect={numIncorrect}
           totalQuestions={questions.length}
+          quizName={quizName}
         />
       ) : (
         <>

@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { supabase } from './supabase/supabaseClient';
+import { useState } from 'react';
 
 
-const QuizScore = ({ score, numCorrect, numIncorrect, totalQuestions }) => {
+
+const QuizScore = ({ score, numCorrect, numIncorrect, totalQuestions, quizName }) => {
   return (
     <>
     <h1 className= "quiz-nadpis">QUIZ RESULTS</h1>
@@ -16,21 +18,22 @@ const QuizScore = ({ score, numCorrect, numIncorrect, totalQuestions }) => {
       <Link to="/landingpage">
         <button className="results_button">BACK</button>
       </Link>
-        <button className="results_button" onClick={saveScoreToDatabase}>SAVE TO DATABASE</button>
+        <button className="results_button" onClick={() => saveScoreToDatabase(numCorrect, numIncorrect, score, quizName)}>SAVE RESULTS</button>
     </div>
     </div>
     </>
   );
 };
 
-const saveScoreToDatabase = async ({numCorrect, numIncorrect }) => {
+const saveScoreToDatabase = async (numCorrect, numIncorrect, score, quizName) => {
   try {
     const { data, error } = await supabase
       .from('Results')
       .insert([{ 
-        QUIZ: "Slovencina", 
-        CorrectAnswers: numCorrect, 
-        IncorrectAnswers: numIncorrect, 
+        quiz_name: quizName,
+        correct_answers: numCorrect, 
+        incorrect_answers: numIncorrect, 
+        score: score
       }]);
     if (error) throw error;
     alert("Score saved successfully!");

@@ -14,6 +14,7 @@ const Dejepis = () => {
   const [quizEnded, setQuizEnded] = useState(false);
   const [answer1, setAnswer1] = useState("");
   const [timeLeft, setTimeLeft] = useState(20);
+  const [quizName, setQuizName] = useState("Dejepis");
 
   useEffect(() => {
     setLoading(true);
@@ -91,6 +92,7 @@ const Dejepis = () => {
           numCorrect={numCorrect}
           numIncorrect={numIncorrect}
           totalQuestions={questions.length}
+          quizName={quizName}
         />
       ) : (
         <>
