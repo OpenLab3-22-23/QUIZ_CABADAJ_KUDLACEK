@@ -11,6 +11,19 @@ import Fyzika from "./Fyzika";
 import Informatika from "./Informatika";
 
 export default function LandingPage(): JSX.Element {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  }
+
     const {signOut} = useAuth()
 
     function handleLogOut(): void {
@@ -19,25 +32,25 @@ export default function LandingPage(): JSX.Element {
     
     return  (
         <>          
+    <div className="App">
+      <nav className="navbar">
+      <button onClick={toggleSidebar} className="button_menu">
+        </button>
+        <h1>Quiz</h1>
+      </nav>
+      {isSidebarOpen && (
+        <div className="sidebar">
+          <button onClick={toggleSidebar} className="margin_menu">
+          </button>
+          <ul>
+            <li>Výsledky</li>
+            <li onClick={signOut}>Odhlásiť sa</li>
+          </ul>
+        </div>
+      )}
+    </div>
 
-<div className="QUIZ_dropdown">
-<nav>
 
-  <input type="checkbox" id="hamburger-toggle" />
-  <label htmlFor="hamburger-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-  <div className="menu">
-    <ul>
-      <li><a href="#">Výsledky</a></li>
-      <li><a onClick={handleLogOut}>Odhlásiť sa</a></li>
-    </ul>
-  </div>
-  <a className="home">QUIZ</a>
-</nav>
-</div>
 
       <div className="button-container">
         <div className="button-row">
