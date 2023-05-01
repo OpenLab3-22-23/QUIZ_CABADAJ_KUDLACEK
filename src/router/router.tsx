@@ -10,6 +10,7 @@ import Matematika from "../Matematika";
 import QuizScore from "../QuizScore";
 import Random from "../Random";
 import Slovencina from "../Slovencina";
+import Results from "../Results";
 
 
 
@@ -54,5 +55,9 @@ export const router = createBrowserRouter([
   {
     path: "/landingpage",
     element: <LandingPage />
+  },
+  {
+    path: "/results",
+    element: <Results />
   },
 ]);

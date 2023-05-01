@@ -43,7 +43,9 @@ export default function LandingPage(): JSX.Element {
           <button onClick={toggleSidebar} className="margin_menu">
           </button>
           <ul>
-            <li>Výsledky</li>
+            <Link to= "/results">
+              <button>Results</button>
+            </Link>
             <li onClick={signOut}>Odhlásiť sa</li>
           </ul>
         </div>
