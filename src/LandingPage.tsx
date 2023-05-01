@@ -18,6 +18,7 @@ export default function LandingPage(): JSX.Element {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    document.querySelector('.sidebar').classList.toggle('show');
   };
 
   const handleToggle = () => {
@@ -34,25 +35,26 @@ export default function LandingPage(): JSX.Element {
         <>          
     <div className="App">
       <nav className="navbar">
-      <button onClick={toggleSidebar} className="button_menu">
-        </button>
+        <button onClick={toggleSidebar} className="button_menu"></button>
         <h1>Quiz</h1>
       </nav>
-      {isSidebarOpen && (
-        <div className="sidebar">
-          <button onClick={toggleSidebar} className="margin_menu">
-          </button>
-          <ul>
-            <Link to= "/results">
-              <button>Results</button>
-            </Link>
-            <li onClick={signOut}>Odhlásiť sa</li>
+      <div className="main-content">
+
+      </div>
+      <div className="sidebar">
+        <button onClick={toggleSidebar} className="margin_menu"></button>
+        <ul>
+            <li>
+              <Link to= "/results">
+                <button>Results</button>
+              </Link>
+            </li>
+            <li>
+              <button onClick={signOut}>Odhlásiť sa</button>
+            </li>
           </ul>
-        </div>
-      )}
+      </div>
     </div>
-
-
 
       <div className="button-container">
         <div className="button-row">
