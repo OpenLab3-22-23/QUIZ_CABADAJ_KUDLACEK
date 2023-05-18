@@ -69,6 +69,7 @@ body{
     font-size: 40px;
     line-height: 47px;
     border-radius: 5px;
+    cursor:pointer;
 }
 .btn-questions:hover{
     background-color: #555;
@@ -106,6 +107,7 @@ body{
   margin-right: 50px;
   margin-top: 35px;
   font-size: 30px;
+  cursor: pointer;
 }
 .quiz-odpoved3{
   width: 380px;
@@ -117,6 +119,7 @@ body{
   border: none;
   margin-right: 50px;
   font-size: 30px;
+  cursor: pointer;
 }
 .quiz-odpoved2{
   width: 380px;
@@ -127,6 +130,7 @@ body{
   border: none;
   margin-top: 35px;
   font-size: 30px;
+  cursor: pointer;
 }
 .quiz-odpoved4{
   width: 380px;
@@ -137,6 +141,7 @@ body{
   border-radius: 14px;
   border: none;
   font-size: 30px;
+  cursor: pointer;
 }
 .quiz-row1{
   margin-right: 100px;
@@ -258,7 +263,7 @@ body{
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #333;
+  background-color: black;
   color: #fff;
 }
 
