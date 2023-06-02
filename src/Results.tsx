@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Supabase from '@supabase/supabase-js';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { supabase } from './supabase/supabaseClient';
 
 const Results = () => {
@@ -11,7 +12,7 @@ const Results = () => {
           .from('Results')
           .select('*');
   
-        if (error) console.log('Chyba při načítání dat:', error);
+        if (error) console.log('Chyba pri načítaní dát:', error);
   
         setResults(data);
       }
@@ -42,6 +43,11 @@ const Results = () => {
             ))}
           </tbody>
         </table>
+        <div className="back-button1">
+      <Link to="/landingpage">
+        <button className="results_button">BACK</button>
+      </Link>
+        </div>
       </div>
     );
   }
