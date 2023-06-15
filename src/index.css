@@ -71,6 +71,7 @@ body{
     line-height: 47px;
     border-radius: 5px;
     cursor:pointer;
+    border: solid;
 }
 .btn-questions:hover{
     background-color: #555;
@@ -91,6 +92,7 @@ body{
     top: 40%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
+    border-style: solid;
 }
 .quiz-txtotazka{
   font-size: 30px;
@@ -109,6 +111,8 @@ body{
   margin-top: 35px;
   font-size: 30px;
   cursor: pointer;
+  border-bottom: solid;
+  border-right: solid;
 }
 .quiz-odpoved3{
   width: 380px;
@@ -121,6 +125,8 @@ body{
   margin-right: 50px;
   font-size: 30px;
   cursor: pointer;
+  border-bottom: solid;
+  border-right: solid;
 }
 .quiz-odpoved2{
   width: 380px;
@@ -132,6 +138,8 @@ body{
   margin-top: 35px;
   font-size: 30px;
   cursor: pointer;
+  border-bottom: solid;
+  border-right: solid;
 }
 .quiz-odpoved4{
   width: 380px;
@@ -143,6 +151,8 @@ body{
   border: none;
   font-size: 30px;
   cursor: pointer;
+  border-bottom: solid;
+  border-right: solid;
 }
 .quiz-row1{
   margin-right: 100px;
@@ -195,6 +205,7 @@ body{
   margin-top: 20px;
   text-align: center;
   width: 700px;
+  outline: solid;
 }
 .quiz-score h2, .quiz-score h3 {
    font-weight: normal;
@@ -255,6 +266,7 @@ text-align-last: center;
   color: #fff;
   background-color: #000;
   text-align: center;
+  margin-top: 35px;
 }
 .App {
   display: flex;
