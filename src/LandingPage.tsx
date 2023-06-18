@@ -10,6 +10,8 @@ import Random from "./Random";
 import Fyzika from "./Fyzika";
 import Informatika from "./Informatika";
 
+
+
 export default function LandingPage(): JSX.Element {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +31,7 @@ export default function LandingPage(): JSX.Element {
 
     function handleLogOut(): void {
       signOut();
+      
     }
     
     return  (
@@ -50,7 +53,9 @@ export default function LandingPage(): JSX.Element {
               </Link>
             </li>
             <li>
-              <button onClick={signOut}>Odhlásiť sa</button>
+              <Link to= "/login">
+              <button onClick={handleLogOut}>Odhlásiť sa</button>
+              </Link>
             </li>
           </ul>
       </div>
